@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///D:/storage_rack_website/index.html#order -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Rack Creations - Custom Storage Racks</title>
+    <link rel="stylesheet" href="./Solid Rack Creations - Custom Storage Racks_files/style.css">
+    <script defer="" src="./Solid Rack Creations - Custom Storage Racks_files/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Solid Rack Creations</h1>
+        <nav>
+            <ul>
+                <li><a href="file:///D:/storage_rack_website/index.html#order" onclick="showOrderForm()">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero-section">
+        <h2>Welcome to Solid Rack Creations</h2>
+        <p>We specialize in building <strong>custom storage racks</strong> that are strong, durable, and designed to fit your storage needs.</p>
+        <h2>Our Custom Storage Racks</h2>
+        <div class="image-gallery">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_2.jpg" alt="Custom Rack 2" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_3.jpg" alt="Custom Rack 3" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_4.jpg" alt="Custom Rack 4" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_1.jpg" alt="Custom Rack 1" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_5.jpg" alt="Custom Rack 5" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_6.jpg" alt="Custom Rack 6" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_7.jpg" alt="Custom Rack 7" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_8.jpg" alt="Custom Rack 8" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_9.jpg" alt="Custom Rack 9" width="300">
+            <img src="./Solid Rack Creations - Custom Storage Racks_files/tote_10.jpg" alt="Custom Rack 10" width="300">
+        </div>
+        <div class="order-button-container">
+            <button class="order-button" onclick="showOrderForm()">Place an Order</button>
+        </div>
+    </section>
+    
+    <section id="about" class="info-section">
+        <h2>How It Works</h2>
+        <p>Our custom-built storage racks are made from <strong>high-quality materials</strong> with options for different sizes, framing types, casters, paint finishes, and shelving add-ons.</p>
+        <p>Each rack is constructed for <strong>strength, durability, and easy assembly</strong>.</p>
+    </section>
+    
+    <section id="order" class="order-section" style="display: block;">
+        <h2>Place Your Order</h2>
+        <form id="orderForm">
+            <label>Choose Size:</label>
+            <select id="size" onchange="updateTotal()">
+                <option value="235">2x1 - $235</option>
+                <option value="240">3x1 - $240</option>
+                <option value="245">4x1 - $245</option>
+                <option value="250">5x1 - $250</option>
+                <option value="245">2x2 - $245</option>
+                <option value="255">3x2 - $255</option>
+                <option value="265">4x2 - $265</option>
+                <option value="275">5x2 - $275</option>
+                <option value="255">2x3 - $265</option>
+                <option value="270">3x3 - $265</option>
+                <option value="285">4x3 - $285</option>
+                <option value="300">5x3 - $300</option>
+                <option value="265">2x4 - $265</option>
+                <option value="285">3x4 - $285</option>
+                <option value="305">4x4 - $305</option>
+                <option value="325">5x4 - $325</option>
+                <option value="275">2x5 - $275</option>
+                <option value="300">3x5 - $300</option>
+                <option value="325">4x5 - $325</option>
+                <option value="350">5x5 - $350</option>
+            </select>
+            
+            <label>Framing Type:</label>
+            <select id="framing" onchange="updateTotal()">
+                <option value="0">2x3 (Standard)</option>
+                <option value="20">2x4 (Extra Sturdy +$20)</option>
+            </select>
+            
+            <label>Plywood Options:</label>
+            <input type="checkbox" id="plywood" onchange="updateTotal()"> Plywood Top &amp; Sides (+$40)
+            
+            <label>Paint Options:</label>
+            <select id="paint" onchange="updateTotal()">
+                <option value="0">None</option>
+                <option value="50">Black (+$50)</option>
+                <option value="50">White (+$50)</option>
+                <option value="50">Custom (+$50)</option>
+            </select>
+            
+            <label>Add Totes and Lids ($15 each):</label>
+            <input type="number" id="totes" min="0" value="0" onchange="updateTotal()">
+            
+            <label>Add Casters:</label>
+            <select id="casters" onchange="updateTotal()">
+                <option value="0">None</option>
+                <option value="80">4 Casters (+$80)</option>
+                <option value="100">6 Casters (+$100)</option>
+            </select>
+            
+            <h2>Total Price: $<span id="total-price">420</span></h2>
+            
+            <label>Payment Method:</label>
+            <select id="payment-method">
+                <option value="credit">Credit/Debit Card (Stripe)</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            
+            <button type="submit" class="button" onclick="confirmOrder(event)">Place Order</button>
+        </form>
+    </section>
+
+    <script>
+        function showOrderForm() {
+            document.getElementById("order").style.display = "block";
+        }
+        function confirmOrder(event) {
+            event.preventDefault();
+            alert("Thank you for your order! You will receive a confirmation email shortly.");
+            // TODO: Integrate email receipt system
+        }
+    </script>
+
+
+</body></html>
